@@ -29,7 +29,7 @@ public:
 	{
 
 	}
-
+	//d
 	std::string hisse_ekle(std::string id, std::string sembol, std::string ad, float fiyat)
 	{
 		try
@@ -43,7 +43,7 @@ public:
 			return "hata";
 		}
 	}
-
+	//d
 	std::string emir_ekle(std::string id, std::string sembol, std::string islem, int adet)
 	{
 		try
@@ -57,7 +57,7 @@ public:
 			return "hata";
 		}
 	}
-
+	//d
 	std::string portfoy_ekle(std::string id, std::string sembol, float maliyet, int adet)
 	{
 		try
@@ -89,8 +89,8 @@ public:
 		{
 			return "hata";
 		}
-	}
-
+	} 
+	//d
 	std::string emirleri_gerceklestir()
 	{
 		try
@@ -117,7 +117,7 @@ public:
 			return "islem_basarisiz";
 		}
 	}
-
+	//d
 	Portfoy* portfoy_getir(std::string aranacak_sembol)
 	{
 		try
@@ -137,8 +137,8 @@ public:
 			return NULL;
 		}
 	}
-
-	std::string emir_getir(std::string aranacak_id)
+	//d
+	Emir* emir_getir(std::string aranacak_id)
 	{
 		try
 		{
@@ -146,20 +146,17 @@ public:
 			{
 				if (aranacak_id == emirler[i]._id)
 				{
-					std::cout << "_id: " << emirler[i]._id << " -- Sembol: " << emirler[i]._sembol << " -- Islem: " << emirler[i]._islem  << " -- Adet: " << emirler[i]._adet << std::endl;
-					std::cout << "Durum: " << emirler[i]._durum << std::endl;
-					std::cout << "Kar: " << emirler[i].kar << std::endl << "Zarar: " << emirler[i].zarar<<std::endl;
-					return "bulundu";
+					return &emirler[i];
 				}
 			}
-			return "bulunamadi";
+			return NULL;
 		}
 		catch (const std::exception& e)
 		{
-			return "hata";
+			return NULL;
 		}
 	}
-
+	//d
 	Hisse* hisse_getir(std::string aranacak_sembol)
 	{
 		try
@@ -255,6 +252,10 @@ public:
 			bool flag = true;
 			do
 			{
+				if (portfoy_elemanlari.size() == 0)
+				{
+					flag = false;
+				}
 				for (int i = 0; i < portfoy_elemanlari.size(); ++i)
 				{
 					if (portfoy_elemanlari[i]._adet == 0)
@@ -280,6 +281,10 @@ public:
 			bool flag = true;
 			do
 			{
+				if (emirler.size() == 0)
+				{
+					flag = false;
+				}
 				for (int i = 0; i < emirler.size(); ++i)
 				{
 					if (emirler[i]._durum == "tamamlanan")
