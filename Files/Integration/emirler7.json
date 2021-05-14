@@ -3,19 +3,19 @@
     {
       "_id": "6083d99c82183862cf3c4f",
       "Sembol": "AKBNK",
-      "Islem": "SATIS",
+      "Islem": "hatali",
       "Adet": 200
     },
     {
       "_id": "6083d99543ab796362cf3c",
       "Sembol": "AKSA",
-      "Islem": "SATIS",
-      "Adet": 120
+      "Islem": "hatali",
+      "Adet": 121
     },
     {
       "_id": "6083d99543abb16362cf3c",
       "Sembol": "TATGD",
-      "Islem": "ALIS",
+      "Islem": "hatali",
       "Adet": 250
     }
   ]

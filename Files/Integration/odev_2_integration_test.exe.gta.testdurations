@@ -2,7 +2,44 @@
 <GtaTestDurations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Executable>C:\Users\sbuys\Desktop\github\cpp-google-test\Files\Integration\odev_2_integration_test.exe</Executable>
   <TestDurations>
-    <TestDuration Test="BankaAdvancedIntegrationTest.hisse_satis_kar_hesapla" Duration="18" />
-    <TestDuration Test="BankaAdvancedIntegrationTest.hisse_satis_art_arda_hesapla" Duration="27" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.hisse_satis_kar_hesapla" Duration="24" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.hisse_satis_art_arda_hesapla" Duration="30" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.hisse_satis_art_arda_adet_kontrol" Duration="24" />
+    <TestDuration Test="BankaAdvancedUnitTest.hisse_satis_zarar_hesapla" Duration="20" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.hisse_satis_zarar_hesapla" Duration="20" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.toplam_kar_hesapla" Duration="23" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.toplam_zarar_hesapla" Duration="30" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.emirler1_size_hesapla" Duration="1" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.emirler2_size_hesapla" Duration="1" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.emirler3_size_hesapla" Duration="1" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.hisseler_size_hesapla" Duration="25" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.portfoy_size_hesapla" Duration="2" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.portfoy_adet_hesapla" Duration="2" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.portfoy_hisse_adet_hesapla" Duration="2" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.emirler1_islem_adet_hesapla" Duration="2" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.emirler2_islem_adet_hesapla" Duration="1" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.emirler3_islem_adet_hesapla" Duration="1" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.toplam_kar_hesapla_emirler2" Duration="18" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.toplam_kar_hesapla_emirler3" Duration="23" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.islem_sonrasi_portfoy_sayisi_emirler1" Duration="28" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.islem_sonrasi_portfoy_sayisi_emirler2" Duration="25" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.islem_sonrasi_portfoy_sayisi_emirler3" Duration="30" />
+    <TestDuration Test="BankaAdvancedUnitTest.sifir_satis_test" Duration="17" />
+    <TestDuration Test="BankaAdvancedUnitTest.sifir_alis_test" Duration="266" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.sifir_satis_test" Duration="28" />
+    <TestDuration Test="BankaAdvancedUnitTest.yanlis_adet_satmaya_calis" Duration="283" />
+    <TestDuration Test="BankaAdvancedUnitTest.yanlis_durumlu_hisse_satmaya_calis" Duration="383" />
+    <TestDuration Test="BankaAdvancedUnitTest.portfoy_maliyet_hesapla2" Duration="306" />
+    <TestDuration Test="BankaAdvancedUnitTest.alim_sonrasi_maliyet" Duration="314" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.sifir_alis_test" Duration="25" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.yanlis_adet_satmaya_calis" Duration="18" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.yanlis_durumlu_hisse_satmaya_calis" Duration="16" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.portfoy_maliyet_hesapla2" Duration="27" />
+    <TestDuration Test="BankaAdvancedIntegrationTest.alim_sonrasi_maliyet" Duration="22" />
+    <TestDuration Test="EmirIntegrationTest.emirOlustur" Duration="1" />
+    <TestDuration Test="EmirIntegrationTest.emir_isle_tamamlanmis" Duration="1" />
+    <TestDuration Test="EmirIntegrationTest.emir_isle_hatali_emir_islem_tipi" Duration="2" />
+    <TestDuration Test="EmirUnitTest.emir_isle_hatali_adet" Duration="1" />
+    <TestDuration Test="EmirIntegrationTest.emir_isle_hatali_adet" Duration="1" />
   </TestDurations>
 </GtaTestDurations>
