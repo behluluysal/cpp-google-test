@@ -4,6 +4,7 @@
 #include "../yazilimTestiOdev2/Hisse.h"
 #include "../yazilimTestiOdev2/Emir.h"
 
+
 TEST(BankaAdvancedUnitTest, banka_olustur) {
 	Banka* banka = new Banka(0, 0, 0);
 	EXPECT_TRUE(banka != nullptr);

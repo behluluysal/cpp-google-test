@@ -5,26 +5,49 @@
 */
 
 #include <iostream>
+#include <fstream>
+#include <string>
+#include "json.hpp"
+
+
 #include "Banka.h"
+
 int main()
 {
     Banka b = Banka(0, 0, 0);
-    
-    b.portfoy_ekle("6083d9954308183862cf3c4f","AKBNK",3.15,200);
-    b.portfoy_ekle("6083d9954308196362cf3c50", "AKSA", 16.25, 120);
-    b.portfoy_ekle("6083d9954308183462cf3c9d", "TATGD", 8.5, 500);
-    b.portfoy_ekle("6083d1634308183462cf3c9d", "TUPRS", 86.5, 1100);
+    std::fstream newfile;
 
+    newfile.open("emirler.json", std::ios::in);
+    nlohmann::json jf;
+    if (newfile.is_open()) {
+        jf = nlohmann::json::parse(newfile);
+        newfile.close(); 
+    }
+    for (auto& td : jf["Emirler"])
+    {
+        b.emir_ekle(td["_id"].get<std::string>(), td["Sembol"].get<std::string>(), td["Islem"].get<std::string>(), td["Adet"].get<int>());
+    }
 
-    b.emir_ekle("6083d99543abb16362cf3c", "TATGD", "ALIS", 250);
+    newfile.open("hisseler.json", std::ios::in);
+    if (newfile.is_open()) {
+        jf = nlohmann::json::parse(newfile);
+        newfile.close(); 
+    }
+    for (auto& td : jf["Hisseler"])
+    {
+        b.hisse_ekle(td["_id"].get<std::string>(), td["Sembol"].get<std::string>(), td["Ad"].get<std::string>(), td["Fiyat"].get<float>());
+    }
 
-    b.hisse_ekle("6083d9954308183462cf3c4f","AKBNK","AKBANK",4.87);
-    b.hisse_ekle("6083d9954308183462cf3c50", "AKSA", "AKSA", 14.36);
-    b.hisse_ekle("6083d9954308183462cf3c9d", "TATGD", "TAT GIDA", 9.27);
-    b.hisse_ekle("6083d9954308183462cf3ca9", "TUPRS", "TUPRAS", 86.5);
-
+    newfile.open("portfoy.json", std::ios::in);
+    if (newfile.is_open()) {
+        jf = nlohmann::json::parse(newfile);
+        newfile.close();
+    }
+    for (auto& td : jf["Portfoy"])
+    {
+        b.portfoy_ekle(td["_id"].get<std::string>(), td["Sembol"].get<std::string>(), td["Maliyet"].get<float>(), td["Adet"].get<int>());
+    }
+            
     b.emirleri_gerceklestir();
-
-
     b.portfoy_yazdir();
 }
