@@ -17,7 +17,7 @@ int main()
     Banka b = Banka(0, 0, 0);
     std::fstream newfile;
 
-    newfile.open("emirler6.json", std::ios::in);
+    newfile.open("emirler.json", std::ios::in);
     nlohmann::json jf;
     if (newfile.is_open()) {
         jf = nlohmann::json::parse(newfile);
@@ -38,7 +38,7 @@ int main()
         b.hisse_ekle(td["_id"].get<std::string>(), td["Sembol"].get<std::string>(), td["Ad"].get<std::string>(), td["Fiyat"].get<float>());
     }
 
-    newfile.open("portfoy2.json", std::ios::in);
+    newfile.open("portfoy.json", std::ios::in);
     if (newfile.is_open()) {
         jf = nlohmann::json::parse(newfile);
         newfile.close();
