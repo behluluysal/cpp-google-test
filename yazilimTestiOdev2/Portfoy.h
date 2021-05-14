@@ -13,6 +13,19 @@ public:
 		_adet = adet;
 		_maliyet = maliyet;
 	}
+	std::string portfoy_guncelle(int adet, float maliyet)
+	{
+		try
+		{
+			_adet = adet;
+			_maliyet = maliyet;
+			return "basarili";
+		}
+		catch (const std::exception&)
+		{
+			return "hata";
+		}
+	}
 	~Portfoy()
 	{
 

@@ -15,14 +15,14 @@ public:
 	std::vector<Hisse> hisse_listesi;
 	std::vector<Emir> emirler;
 	std::vector<Portfoy> portfoy_elemanlari;
-	float kar;
-	float zarar;
+	float _kar;
+	float _zarar;
 	float toplam;
 
 	Banka(float a, float b, float c)
 	{
-		kar = a;
-		zarar = b;
+		_kar = a;
+		_zarar = b;
 		toplam = c;
 	}
 	~Banka()
@@ -71,12 +71,14 @@ public:
 			return "hata";
 		}
 	}
-
+	//d
 	std::string portfoy_yazdir()
 	{
 		try
 		{
 			portfoy_hesapla();
+			clear_portfoy();
+			clear_emirler();
 			std::cout << std::endl << std::endl << "Guncel Portfoy:" << std::endl;
 			for (int i = 0; i < portfoy_elemanlari.size(); ++i)
 			{
@@ -106,6 +108,12 @@ public:
 				{
 					portfoy_ekle("yeni eklendi", emirler[i]._sembol, hisse_getir(emirler[i]._sembol)->_fiyat, emirler[i]._adet);
 					emirler[i]._durum = "tamamlanan";
+					emirler[i]._maliyet = hisse_getir(emirler[i]._sembol)->_fiyat;
+				}
+				else if (emirler[i]._islem == "ALIS")
+				{
+					emirler[i].isleme_al(portfoy_getir(emirler[i]._sembol)->_maliyet, hisse_getir(emirler[i]._sembol)->_fiyat, portfoy_getir(emirler[i]._sembol)->_adet);
+					portfoy_getir(emirler[i]._sembol)->portfoy_guncelle(emirler[i]._adet, emirler[i]._maliyet);
 				}
 				else
 					emirler[i].isleme_al(portfoy_getir(emirler[i]._sembol)->_maliyet, hisse_getir(emirler[i]._sembol)->_fiyat, portfoy_getir(emirler[i]._sembol)->_adet);
@@ -176,7 +184,7 @@ public:
 			return NULL;
 		}
 	}
-
+	//d
 	std::string portfoy_hesapla()
 	{
 		float kar = 0;
@@ -208,11 +216,8 @@ public:
 				}
 				else if (emirler[i]._islem == "ALIS")
 				{
-					if (portfoy_getir(emirler[i]._sembol)->_id != "yeni eklenen")
-					{
-						portfoy_getir(emirler[i]._sembol)->_adet = emirler[i]._adet;
-						portfoy_getir(emirler[i]._sembol)->_maliyet = emirler[i]._maliyet;
-					}
+					portfoy_getir(emirler[i]._sembol)->_adet = emirler[i]._adet;
+					portfoy_getir(emirler[i]._sembol)->_maliyet = emirler[i]._maliyet;
 				}
 			}
 		}
@@ -230,8 +235,7 @@ public:
 			std::cout << "+- " << 0 << " TL" << std::endl;
 		}
 
-		clear_portfoy();
-		clear_emirler();
+	
 
 		std::cout << std::endl << "Provizyondaki Islemler :" << std::endl;
 		for (int i = 0; i < emirler.size(); ++i)
@@ -242,6 +246,8 @@ public:
 			}
 		}
 		
+		_kar = kar;
+		_zarar = zarar;
 		return "basarili";
 	}
 

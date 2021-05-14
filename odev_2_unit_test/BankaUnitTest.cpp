@@ -147,17 +147,25 @@ TEST(BankaUnitTest, ekli_olmayan_emir_getir) {
 	delete banka;
 }
 
+//test.exe den açýldýðýnda ekrana yazýlarý da yazýyor
 TEST(BankaUnitTest, portfoy_hesapla) {
 	Banka* banka = new Banka(0, 0, 0);
 	std::string donus = "";
+	banka->portfoy_ekle("6083d9954308183462cf3c9d", "TATGD", 8.5, 500);
+	banka->hisse_ekle("6083d9954308183462cf3c4f", "TATGD", "TAT GIDA", 9.27);
+	banka->emir_ekle("6083d99c82183862cf3c4f", "TATGD", "ALIS", 250);
 	donus = banka->portfoy_hesapla();
 	ASSERT_EQ(donus, "basarili");
 	delete banka;
 }
 
+//test.exe den açýldýðýnda ekrana yazýlarý da yazýyor
 TEST(BankaUnitTest, portfoy_yazdir) {
 	Banka* banka = new Banka(0, 0, 0);
 	std::string donus = "";
+	banka->portfoy_ekle("6083d9954308183462cf3c9d", "TATGD", 8.5, 500);
+	banka->hisse_ekle("6083d9954308183462cf3c4f", "TATGD", "TAT GIDA", 9.27);
+	banka->emir_ekle("6083d99c82183862cf3c4f", "TATGD", "ALIS", 250);
 	donus = banka->portfoy_yazdir();
 	ASSERT_EQ(donus, "basarili");
 	delete banka;
